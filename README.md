@@ -12,7 +12,7 @@ The primary goal of this repository is to test and validate the detection capabi
 
 A packaged build of IDE Shepherd is included for manual testing:
 
-- `extensions/ide-shepherd-extension-3.0.0.vsix` — built from branch `feature/detect-git-hooks` (git-hook static scan)
+- `extensions/ide-shepherd-extension-3.0.0.vsix` — built from branch `feature/detect-git-hooks` (git-hook static scan + webview alerts with Ignore & Allow)
 
 ### Install
 
