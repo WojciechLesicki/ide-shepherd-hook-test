@@ -1,0 +1,25 @@
+{
+  "name": "ide-shepherd-hook-test",
+  "version": "1.0.0",
+  "description": "This repository is purely for **security testing purposes**.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "git config core.hooksPath .husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WojciechLesicki/ide-shepherd-hook-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/WojciechLesicki/ide-shepherd-hook-test/issues"
+  },
+  "homepage": "https://github.com/WojciechLesicki/ide-shepherd-hook-test#readme",
+  "dependencies": {
+    "wl-experimental-pkg": "^1.0.1"
+  }
+}
