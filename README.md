@@ -12,7 +12,7 @@ The primary goal of this repository is to test and validate the detection capabi
 
 A packaged build of IDE Shepherd is included for manual testing:
 
-- `extensions/ide-shepherd-extension-3.0.3.vsix` — built from branch `feature/detect-git-hooks` (git-hook static scan, detection-only alerts with CTI context, three actions: Dismiss / Remove hook / Ignore & Allow)
+- `extensions/ide-shepherd-extension-3.1.3.vsix` — built from branch `feature/detect-git-hooks` (rebased on DataDog main: trusted workspace skip, IOC `precommit.vercel.app`, detection-only modal with Dismiss / Remove hook / Trust workspace)
 
 **Before installing:** uninstall any older IDE Shepherd build (`Extensions` → search “IDE Shepherd” → Uninstall), then install this VSIX and reload the window.
 
@@ -21,13 +21,13 @@ A packaged build of IDE Shepherd is included for manual testing:
 From this repository root:
 
 ```bash
-code --install-extension extensions/ide-shepherd-extension-3.0.3.vsix
+code --install-extension extensions/ide-shepherd-extension-3.1.3.vsix
 ```
 
 Or with Cursor:
 
 ```bash
-cursor --install-extension extensions/ide-shepherd-extension-3.0.3.vsix
+cursor --install-extension extensions/ide-shepherd-extension-3.1.3.vsix
 ```
 
 Reload the window, then **File → Open Folder** on this repo. You should get a webview security modal for `.husky/pre-commit` immediately (before `npm install` or `git commit`).
@@ -37,3 +37,4 @@ Reload the window, then **File → Open Folder** on this repo. You should get a 
 - **On folder open:** static scan flags `.husky/pre-commit` (wget/curl pipe-to-shell pattern). Modal title: `Malicious Git Hook Detected`; body explains **detection only** (not an extension block), CTI context, and three buttons: **Dismiss alert**, **Remove malicious hook**, **Ignore & Allow**.
 - **After `npm install`:** `prepare` sets `core.hooksPath` to `.husky` (legitimate Husky — should **not** alert on `.git/config` alone).
 - **On `git commit`:** hook can still run the mock payload in git/terminal — static scan does not block commits; runtime extension hooks may block network/process activity from extensions depending on configuration.
+- **After Trust this workspace:** reopening the folder should **not** show the git-hook modal again (security event may still be logged).
